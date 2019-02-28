@@ -109,6 +109,7 @@ def getDefaultVars():
     defaultVars["hide_password"] = True if os.environ.get('HIDE_PASSWORD', "").lower() == "true" else False
     
     # Check required Java installation
+    # TODO: Chaosapes - Need to break this out /AJP//
     java_version = os.environ.get("JAVA_VERSION", "").lower()
     if java_version in ['oracle:8', 'openjdk:8', 'openjdk:11']:
         defaultVars["java_version"] = os.environ.get("JAVA_VERSION", "")
@@ -146,6 +147,7 @@ def getSplunkBuild(vars_scope):
     else:
         vars_scope["splunk"]["build_remote_src"] = False
 
+# TODO: Chaosapes - Need to break this out /AJP//
 def getSplunkApps(vars_scope):
     splunkbase_username = (vars_scope["splunkbase_username"] if "splunkbase_username" in vars_scope else None) or os.environ.get("SPLUNKBASE_USERNAME") or None
     splunkbase_password = (vars_scope["splunkbase_password"] if "splunkbase_password" in vars_scope else None) or os.environ.get("SPLUNKBASE_PASSWORD") or None
